@@ -1,1 +1,2 @@
 # python
+Twitterから情報法を抽出しjsonで出力
