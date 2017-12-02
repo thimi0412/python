@@ -6,6 +6,7 @@ import urllib.request
 import json
 import collections as cl
 from datetime import datetime as dt
+import datetime
 
 if __name__ == '__main__':
 
@@ -64,6 +65,8 @@ if __name__ == '__main__':
                 created_at = tweet2['created_at']
                 created_at = created_at.replace('+0000','')
                 created_at = dt.strptime(created_at, '%a %b %d %H:%M:%S %Y')
+                #日本時刻にするため9時間加算
+                created_at = created_at + datetime.timedelta(hours=9)
 
                 #時刻とテキストをtweet_info_listに格納
                 tweet_info_list.append(str(created_at))
