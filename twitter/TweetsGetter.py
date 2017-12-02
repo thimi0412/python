@@ -8,7 +8,7 @@ import json
 CK = ""
 CS = ""
 AT = ""
-AS = "s"
+AS = ""
 
 class TweetsGetter(object):
     __metaclass__ = ABCMeta
