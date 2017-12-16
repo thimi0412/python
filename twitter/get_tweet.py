@@ -7,6 +7,7 @@ import json
 import collections as cl
 from datetime import datetime as dt
 import datetime
+import re
 
 if __name__ == '__main__':
 
@@ -70,7 +71,9 @@ if __name__ == '__main__':
 
                 #時刻とテキストをtweet_info_listに格納
                 tweet_info_list.append(str(created_at))
-                tweet_info_list.append(tweet2['text'])
+                #ツイート本文内にあるURLと改行文字列(\n)を削除
+                ret = re.sub(r"(https?|ftp)(:\/\/[-_\.!~*\'()a-zA-Z0-9;\/?:\@&=\+\$,%#]+)", "" ,tweet2['text'])
+                tweet_info_list.append(ret.replace('\n',''))
 
                 '''
                 デバック文
